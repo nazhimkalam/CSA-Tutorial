@@ -68,9 +68,9 @@ public class CustomerResource {
 
         customers.add(customer);
 
-        ArrayList<Customer> updatedCustomers = new ArrayList<>(customers);
+//        ArrayList<Customer> updatedCustomers = new ArrayList<>(customers);
 
-        return Response.status(Response.Status.CREATED).entity(updatedCustomers).build();
+        return Response.status(Response.Status.CREATED).entity(customers).build();
     }
 
     // Update an existing customer (In this case we pass the ID of the customer to be updated in the path, along with the updated content body)
