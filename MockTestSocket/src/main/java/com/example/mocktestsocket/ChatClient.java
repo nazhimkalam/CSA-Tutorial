@@ -17,7 +17,22 @@ public class ChatClient {
             Socket socket = new Socket("localhost", 5000);
             System.out.println("Connected to the server.");
 
-    
+           // Thread to receive and display broadcast messages
+            Thread receiveThread = new Thread(() -> {
+                try {
+                    BufferedReader serverInput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                    String serverMessage;
+                    while ((serverMessage = serverInput.readLine()) != null) {
+                        System.out.println(serverMessage);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+            
+            receiveThread.start();
+        
+        /////////////////////////////////////////////////////////////////
 
             // Send messages from the main thread
             try (PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
