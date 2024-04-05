@@ -2,16 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.example.mocktestsocket;
+package com.mycompany.broadcastingtutorial;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.*;
+import java.net.*;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.logging.*;
 
 
 // This is the main class named ChatServer.
@@ -26,7 +23,7 @@ public class ChatServer {
             // Create a new ServerSocket object that listens on port 5000.
             ServerSocket serverSocket = new ServerSocket(5000);
             // Log an informational message indicating that the server has started and is waiting for clients.
-            LOGGER.log(Level.INFO, "Server started. Waiting for clients...");
+            LOGGER.log(Level.ALL.INFO, "Server started. Waiting for clients...");
 
             // An infinite loop to continuously accept new client connections.
             while (true) {
